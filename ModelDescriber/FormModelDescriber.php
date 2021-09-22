@@ -124,6 +124,7 @@ final class FormModelDescriber implements ModelDescriberInterface, ModelRegistry
             if ($property->ref instanceof \Nelmio\ApiDocBundle\Annotation\Model) {
                 $class = $property->ref->type;
                 $groups = property_exists($property->ref, 'groups') ? $property->ref->groups : null;
+                $property->ref = null;
             }
             $model = new Model(
                 new Type(Type::BUILTIN_TYPE_OBJECT, false, $class),
